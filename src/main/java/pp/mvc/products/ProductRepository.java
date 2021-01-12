@@ -13,11 +13,11 @@ public class ProductRepository {
 
     public ProductRepository() {
         products = new ArrayList<>();
-        products.add(new Product("woda", 2.50, 1, "spożywcze"));
-        products.add(new Product("patelnia", 100.00, 2, "domowe"));
-        products.add(new Product("laptop", 4000.00, 3, "inne"));
-        products.add(new Product("krzesło", 650.00, 4, "domowe"));
-        products.add(new Product("czekolada", 5.50, 5, "spożywcze"));
+        products.add(new Product("woda", 2.50, 1, "Spożywcze"));
+        products.add(new Product("patelnia", 100.00, 2, "Domowe"));
+        products.add(new Product("laptop", 4000.00, 3, "Inne"));
+        products.add(new Product("krzesło", 650.00, 4, "Domowe"));
+        products.add(new Product("czekolada", 5.50, 5, "Spożywcze"));
     }
 
 
@@ -28,8 +28,6 @@ public class ProductRepository {
     public void add(Product product) {
         products.add(product);
     }
-
-
 }
 
 
