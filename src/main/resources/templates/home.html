@@ -38,9 +38,10 @@
             <input type="number" placeholder="Price" th:field="*{price}"></br>
             <span th:type="text">Kategoria</span>
             <select type="text" placeholder="Category" th:field="*{category}">
-                <option value="spożywcze">spożywcze</option>
-                <option value="domowe">domowe</option>
-                <option value="inne">inne</option>
+                <option value="Wybierz" selected>Wybierz..</option>
+                <option value="SPOŻYWCZE">SPOŻYWCZE</option>
+                <option value="DOMOWE">DOMOWE</option>
+                <option value="INNE">INNE</option>
                 <input class="btn btn-primary" type="submit" value="Dodaj"/>
         </div>
     </form>

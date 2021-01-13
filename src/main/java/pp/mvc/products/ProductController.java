@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +23,10 @@ public class ProductController {
     @GetMapping("/")
     public String home(Model model) {
         List<String> list = new ArrayList<>();
-        list.add("Wszystkie");
-        list.add("Spożywcze");
-        list.add("Domowe");
-        list.add("Inne");
+        list.add("WSZYSTKIE");
+        list.add("SPOŻYWCZE");
+        list.add("DOMOWE");
+        list.add("INNE");
 
         model.addAttribute("home", list);
         model.addAttribute("product", new Product());
@@ -35,8 +36,16 @@ public class ProductController {
 
 
     @GetMapping("/lista")
-    public String all(Model model) {
-        List<Product> products = productRepository.getAll();
+    public String all(Model model, @RequestParam(required = false, name = "kategoria") Category category) {
+        List<Product> products;
+
+        if (category != null) {
+            products = productRepository.findByCategory(category);
+        } else {
+            products = productRepository.getAll();
+        }
+
+
         model.addAttribute("product", new Product());
         model.addAttribute("products", products);
 
@@ -63,6 +72,6 @@ public class ProductController {
         product.setId(maxId + 1);
         productRepository.add(product);
 
-        return "redirect:/lista?kategoria=wszystkie";
+        return "redirect:/";
     }
 }
