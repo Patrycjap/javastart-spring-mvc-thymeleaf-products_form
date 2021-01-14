@@ -7,7 +7,6 @@ public class Product {
     private int id;
     private Category category;
 
-
     public Product() {
     }
 
@@ -17,7 +16,6 @@ public class Product {
         this.id = id;
         this.category = category;
     }
-
 
     public String getName() {
         return name;

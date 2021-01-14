@@ -21,7 +21,10 @@
 <body>
 <div class="header">
     <h2>Dostępne kategorie produktów</h2>
-    <ul>
+    <ul style="list-style: none">
+        <li>
+            <a th:href="@{|/lista|}">ALL</a>
+        <li/>
         <li th:each="kategoria: ${home}">
             <a th:text="${kategoria}" th:href="@{|/lista?kategoria=${kategoria}|}"></a>
         <li/>
@@ -33,15 +36,15 @@
     <form class="row g-3" action="/lista" method="post" th:object="${product}">
         <div class="row g-3">
             <span th:type="text">Nazwa</span>
-            <input type="text" placeholder="Name" th:field="*{name}"></br>
+            <input type="text" required placeholder="Name" th:field="*{name}"></br>
             <span th:type="number">Cena</span>
-            <input type="number" placeholder="Price" th:field="*{price}"></br>
+            <input type="number" required step="0.01" min="0.01" max="1000000" placeholder="Price" th:field="*{price}"></br>
             <span th:type="text">Kategoria</span>
-            <select type="text" placeholder="Category" th:field="*{category}">
-                <option value="Wybierz" selected>Wybierz..</option>
-                <option value="SPOŻYWCZE">SPOŻYWCZE</option>
-                <option value="DOMOWE">DOMOWE</option>
-                <option value="INNE">INNE</option>
+            <select type="text" placeholder="Category" required th:field="*{category}">
+                <option value="Select" selected>Wybierz..</option>
+                <option value="FOOD">Spożywcze</option>
+                <option value="DOMESTIC">Domowe</option>
+                <option value="OTHER">Inne</option>
                 <input class="btn btn-primary" type="submit" value="Dodaj"/>
         </div>
     </form>

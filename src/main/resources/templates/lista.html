@@ -10,14 +10,14 @@
 <body>
 <div style="width: 250px; margin: 20px auto">
     <h2>Lista produktów</h2>
-    <ul class="list-group">
+    <ul class="list-group" style="list-style: none">
         <li class="list-group-item d-flex justify-content-between align-item-center"
             th:each="product: ${products}">
             <span th:text="|[${product.id}] ${product.name}|"></span>
-            <span th:text="|${#numbers.formatDecimal(product.price, 0, 'WHITESPACE', 2, 'COMMA')} PLN|"></span>
+            <span th:text="|${#numbers.formatDecimal(product.price, 1, 'WHITESPACE', 2, 'COMMA')} PLN|"></span>
         <li/>
         <li class="list-group-item">
-            <span th:text="|Suma ${#numbers.formatDecimal(sumPrice, 0, 'WHITESPACE', 2, 'COMMA')} PLN|"></span>
+            <span th:text="|Suma: ${#numbers.formatDecimal(sumPrice, 1, 'WHITESPACE', 2, 'COMMA')} PLN|"></span>
         </li>
     </ul>
 
