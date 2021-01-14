@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @GetMapping("/lista")
-    public String all(Model model, @RequestParam(required = false, name = "kategoria") Category category) {
+    public String getProducts(Model model, @RequestParam(required = false, name = "kategoria") Category category) {
         List<Product> products;
 
         if (category != null) {
